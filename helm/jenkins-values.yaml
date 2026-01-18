@@ -1,0 +1,29 @@
+controller:
+  image:
+    tag: "lts-jdk17"  
+  
+  serviceType: LoadBalancer
+
+  persistence:
+    enabled: true
+    storageClass: managed-csi
+    size: 20Gi
+
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
+
+  installPlugins:
+    - kubernetes
+    - workflow-aggregator
+    - git
+    - configuration-as-code
+    - azure-cli
+
+  admin:
+    username: admin
+    password: admin123  
